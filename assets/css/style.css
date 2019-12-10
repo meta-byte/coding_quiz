@@ -1,0 +1,31 @@
+body{
+    /* background-color: lightgrey; */
+}
+.nav{
+    background-color: #2c2d41;
+}
+.nav-item{
+    color: white;
+}
+
+.nav-link{
+    color: white;
+    margin: 0;
+}
+
+.nav-link:hover{
+    color: yellowgreen;
+}
+
+#timer{
+    float: right;
+}
+
+.main{
+    color: white;
+    background-color: #2c2d41;
+}
+
+.btn{
+    background-color: yellowgreen;
+}
