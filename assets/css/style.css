@@ -21,9 +21,8 @@ body{
     color: yellowgreen;
 }
 
-/* need to float time to the right */
-#timer{
-    float: right;
+#timer:hover{
+    color: white;
 }
 
 .colcontainer{

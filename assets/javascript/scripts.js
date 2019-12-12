@@ -2,21 +2,20 @@ $(document).ready(function () {
     // put everything in here
 })
 
-startbutton = document.querySelector('#start')
+var titleEl = document.querySelector('#title')
+var startbutton = document.querySelector('#start')
+var questionEl = document.querySelector('#quiz-question')
+var buttonBoxEl = document.querySelector('#button-box')
 
 
 $("#start").click(function () {
     startbutton.setAttribute("class", "hide")
     console.log("click")
     timer()
+    nextquestion()
 });
 
-console.log(questions)
-
-
-
 //Function for the timer
-
 function timer() {
     var time = document.querySelector("#time")
     var count = 15
@@ -27,12 +26,24 @@ function timer() {
     }, 1000);
 }
 
+//Function that stops the quiz when the time ends and saves the score to storage
 
-//Function that updates timer and gets next question
 
+//Function that gets next question
 function nextquestion() {
+    var currentQuestion = questions[0];
+    console.log(currentQuestion)
+    questionEl.innerText = currentQuestion.title
+    for (var i = 0; i < currentQuestion.choices.length; i++) {
+        var answerButton = document.createElement("button")
+        answerButton.setAttribute("class", "btn")
+        answerButton.innerHTML = currentQuestion.choices[i]
+        buttonBoxEl.appendChild(answerButton);
+    }
 
 }
+
+
 
 //Function that stops the quiz when the time ends and saves the score to storage
 //Get score from storage and append it to high scores page.
