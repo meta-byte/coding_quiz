@@ -33,7 +33,13 @@ body{
     background-color: #2f3b52;
 }
 
-.btn{
+#start{
     border: solid white 2px;
     background-color: yellowgreen;
+}
+.answerbtn{
+    border: solid white 2px;
+    background-color: yellowgreen;
+    margin-right: 20px;
+    margin-left: 20px;
 }
