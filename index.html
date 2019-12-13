@@ -10,10 +10,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- CSS -->
+
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
+
 
 </head>
 
@@ -42,9 +45,10 @@
                 <div class="jumbotron jumbotron-fluid text-center main">
                     <div class="container">
                         <h1 class="display-4" id="title">Quick Code Quiz</h1>
-                        <p class="lead" id="quiz-question">This quiz will test your knowledge and score your speed and
-                            accuracy. Each
-                            question answered incorrectly will deduct 15 seconds from your time.
+                        <p class="lead" id="quiz-question">This quiz will test your knowledge and score your based on
+                            speed and accuracy. Each
+                            question answered incorrectly will deduct 15 seconds from your time. Each question answered
+                            correctly will add 15 seconds to your time.
                         </p>
                     </div>
                 </div>
@@ -52,13 +56,16 @@
         </div>
 
         <div class="row justify-content-center">
+
             <div class="col-8 text-center" id="button-box">
 
                 <button type="button" id="start" class="btn">Start</button>
 
-                <!-- form will need to append? -->
+            </div>
 
-                <form class="hide">
+            <div class="col-8 text-center hide" id="form-box">
+
+                <form class="">
                     <div class="form-group">
                         <small id="formSmallText" class="form-text text-muted">Enter your name here to save your high
                             score!</small>
@@ -68,7 +75,6 @@
                     <button type="submit" class="btn" id="submit">Submit</button>
                 </form>
             </div>
-
 
         </div>
     </div>
