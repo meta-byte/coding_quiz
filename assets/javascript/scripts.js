@@ -3,7 +3,11 @@ $(document).ready(function () {
     var startbutton = document.querySelector('#start')
     var questionEl = document.querySelector('#quiz-question')
     var buttonBoxEl = document.querySelector('#button-box')
-
+    var formBoxEl = document.querySelector('#form-box')
+    var interval
+    var count = 75
+    var questionindex = 0
+    var score
 
     $("#start").click(function () {
         $("#button-box").empty();
@@ -14,32 +18,60 @@ $(document).ready(function () {
     });
 
     //Function for the timer
-    var count = 75
     function timer() {
         var time = document.querySelector("#time")
         time.innerHTML = count
-        var interval = setInterval(function () {
-            count--
-            time.innerHTML = count
+        interval = setInterval(function () {
+            if (count === 0) {
+                stopTimer()
+                stopQuiz()
+            }
+            else {
+                count--
+                time.innerHTML = count
+            }
+
         }, 1000);
     }
 
-    //Function that gets next question
-    var questionindex = 0
-    function nextquestion() {
+    //Function to stop timer
+    function stopTimer() {
+        clearInterval(interval);
+    }
 
+    //Function that stops quiz and stores time as score
+    function stopQuiz() {
+        $("#button-box").empty();
+        buttonBoxEl.setAttribute("class", "hide")
+        formBoxEl.removeAttribute("class", "hide")
+        questionEl.innerText = "You completed the quick coding quiz!"
+        score = time.innerText
+        console.log(score)
+    }
+
+    //Function that gets next question
+    function nextquestion() {
         var currentQuestion = questions[questionindex];
         questionindex++
         console.log(currentQuestion)
-        questionEl.innerText = currentQuestion.title
-        for (var i = 0; i < currentQuestion.choices.length; i++) {
-            var answerButton = document.createElement("button")
-            answerButton.setAttribute("class", "answerbtn")
-            answerButton.innerHTML = currentQuestion.choices[i]
-            answerButton.setAttribute("data-id", currentQuestion.choices[i])
-            buttonBoxEl.appendChild(answerButton);
 
+        if (questionindex <= questions.length) {
+            questionEl.innerText = currentQuestion.title
+            for (var i = 0; i < currentQuestion.choices.length; i++) {
+                var answerButton = document.createElement("button")
+                answerButton.setAttribute("class", "answerbtn")
+                answerButton.innerHTML = currentQuestion.choices[i]
+                answerButton.setAttribute("data-id", currentQuestion.choices[i])
+                buttonBoxEl.appendChild(answerButton);
+            }
         }
+
+        else {
+            stopTimer()
+            stopQuiz()
+        }
+
+
         $(".answerbtn").click(function () {
 
             var selected = $(this).attr("data-id")
@@ -48,6 +80,7 @@ $(document).ready(function () {
             console.log(selected)
 
             if (answer === selected) {
+                count = count + 15
                 $("#button-box").empty();
                 nextquestion()
 
@@ -64,10 +97,6 @@ $(document).ready(function () {
 
 })
 
-//Stop time when questions run out or time hits 0
-//form appears for initial / name entry > saves to local storage when submitted then automatically appends to highscores
 //highscores page is loaded so high score can be viewed.
-//clean and refactor code and css
 //create README
-
 //** Bonus: Add light mode dark mode switch **/
