@@ -4,6 +4,9 @@
 
 body{
     background-color: #252e42;
+    font-family: 'Titillium Web', sans-serif;}
+small{
+    margin-bottom: 10px;
 }
 .nav{
     background-color: #252e42;
@@ -33,17 +36,19 @@ body{
     background-color: #2f3b52;
 }
 
-#start{
+.btn{
     border: solid white 2px;
     background-color: yellowgreen;
-}
-#submit{
-    border: solid white 2px;
-    background-color: yellowgreen;
+    margin-top: 20px ;
 }
 .answerbtn{
     border: solid white 2px;
     background-color: yellowgreen;
     margin-right: 20px;
     margin-left: 20px;
+}
+.list-group-item{
+    border: solid white 2px;
+    background-color: coral;
+    margin-bottom: 20px;
 }
